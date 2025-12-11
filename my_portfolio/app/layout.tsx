@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-// This imports the CSS file you created in the styles folder
-import "../styles/globals.css"; 
+import "./globals.css"; // Ensure this path matches your folder structure
 
 export const metadata: Metadata = {
-  title: "Bahran Solomon - Portfolio",
-  description: "Front-end Developer Portfolio",
+  title: "Bahran's Portfolio",
+  description: "My Personal Portfolio",
 };
 
 export default function RootLayout({
@@ -14,6 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* We removed the Montserrat variable here to stop the crash */}
       <body>{children}</body>
     </html>
   );

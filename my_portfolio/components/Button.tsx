@@ -1,22 +1,15 @@
 interface ButtonProps {
   text: string;
   onClick?: () => void;
-  type?: "button" | "submit" | "reset";
-  variant?: "primary" | "outline";
+  type?: "button" | "submit";
 }
 
-const Button = ({ text, onClick, type = "button", variant = "primary" }: ButtonProps) => {
-  const baseStyles = "px-6 py-3 font-bold uppercase tracking-wider text-sm transition-all duration-300";
-  const variants = {
-    primary: "bg-black text-white hover:bg-gray-800",
-    outline: "border-2 border-black text-black hover:bg-black hover:text-white"
-  };
-
+const Button = ({ text, onClick, type = "button" }: ButtonProps) => {
   return (
     <button 
       type={type} 
       onClick={onClick} 
-      className={`${baseStyles} ${variants[variant]}`}
+      className="bg-black text-white px-6 py-3 font-bold uppercase tracking-wider text-sm hover:bg-gray-800 transition"
     >
       {text}
     </button>
