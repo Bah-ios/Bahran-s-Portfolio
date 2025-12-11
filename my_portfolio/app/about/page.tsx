@@ -1,17 +1,85 @@
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import AboutSection from "@/components/about"; // Importing your new component
+import { FaPencilRuler, FaCode, FaCogs } from "react-icons/fa";
+/* Import the separate CSS file */
+import styles from "./about.module.css"; 
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
-      <div className="bg-black pb-6 pt-6 px-8">
-        <Navbar />
-      </div>
-      <main className="flex-grow pt-20 px-4">
-        <AboutSection />
+    <>
+      
+      
+      <main className={styles.container}>
+        
+        {/* Header Box */}
+        <div className={styles.titleBox}>
+          <h1>About Me</h1>
+        </div>
+
+        {/* Intro Text */}
+        <p className={styles.introText}>
+          Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. 
+          Sed ornare sit amet lorem sed viverra. In vel urna quis libero viverra facilisis ut ac est.
+        </p>
+
+        {/* Explore Section */}
+        <div className={styles.exploreSection}>
+          <div className={styles.verticalLine}></div>
+          <span className={styles.exploreText}>EXPLORE</span>
+          <div className={styles.verticalLine}></div>
+        </div>
+
+        {/* Decorative Divider */}
+        <div className={styles.divider}>
+          <div className={styles.line}></div>
+          <div className={styles.slashes}>\\ //</div>
+          <div className={styles.line}></div>
+        </div>
+
+        {/* Services Section */}
+        <div className={styles.servicesContainer}>
+          
+          {/* Item 1: Design */}
+          <div className={styles.serviceItem}>
+            <FaPencilRuler className={styles.bgIcon} />
+            <h2 className={styles.serviceTitle}>DESIGN</h2>
+            <p className={styles.serviceDesc}>
+              I can design the site based on your needs and suggestions. I can
+              also design the site from scratch and consult you during the job.
+            </p>
+          </div>
+
+          {/* Item 2: Development */}
+          <div className={styles.serviceItem}>
+            <FaCode className={styles.bgIcon} />
+            <h2 className={styles.serviceTitle}>DEVELOPMENT</h2>
+            <p className={styles.serviceDesc}>
+              I can design the site based on your needs and suggestions. I can
+              also design the site from scratch and consult you during the job.
+            </p>
+          </div>
+
+          {/* Item 3: Maintenance (Centered) */}
+          <div className={styles.serviceItemCenter}>
+            <div style={{ position: 'relative', maxWidth: '350px', textAlign: 'left' }}>
+                <FaCogs className={styles.bgIcon} />
+                <h2 className={styles.serviceTitle}>MAINTENANCE</h2>
+                <p className={styles.serviceDesc}>
+                I can design the site based on your needs and suggestions. I can
+                also design the site from scratch and consult you during the job.
+                </p>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bottom Decorative Divider */}
+        <div className={styles.divider}>
+          <div className={styles.line}></div>
+          <div className={styles.slashes}>\\ //</div>
+          <div className={styles.line}></div>
+        </div>
+
       </main>
-      <Footer />
-    </div>
+    </>
   );
 }

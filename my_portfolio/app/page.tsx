@@ -4,6 +4,11 @@ import Navbar from '@/components/Navbar';
 import dbConnect from '@/lib/mongodb';
 import { Content } from '@/lib/models';
 import styles from './page.module.css';
+import About from './about/page';
+import Skills from './skills/page';
+import Contact from './contact/page';
+import Projects from './projects/page';
+import Footer from '@/components/Footer';
 
 async function getFooterData() {
   await dbConnect();
@@ -17,7 +22,7 @@ export default async function Home() {
   return (
     <main className={styles.splitBackground}>
       <Navbar />
-
+      
       <div className={styles.hero}>
         <div className={styles.heroLeft}>
           <p className={styles.lead}>Hi, I am</p>
@@ -43,11 +48,16 @@ export default async function Home() {
           </div>
         </div>
       </div>
-
-      <div className={styles.footerBand}>
+      <About />
+      <Skills />
+      <Contact />
+      <Projects />
+      <Footer />
+      {/* <div className={styles.footerBand}>
         <h2>{footerData.title}</h2>
         <p>{footerData.body}</p>
-      </div>
+      </div> */}
+      
     </main>
   );
 }
