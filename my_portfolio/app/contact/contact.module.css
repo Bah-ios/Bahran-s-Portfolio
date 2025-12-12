@@ -1,0 +1,134 @@
+/* --- CONTAINER --- */
+.container {
+    min-height: 100vh;
+    width: 100%;
+    /* Subtle radial gradient to match the vignette look */
+    background: radial-gradient(circle, #f0f0f0 0%, #cfcfcf 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px 60px; /* Top padding accounts for fixed Navbar */
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+}
+
+/* --- HEADER BOX --- */
+.titleBox {
+    border: 5px solid black;
+    padding: 15px 60px;
+    margin-bottom: 40px;
+    background: transparent;
+}
+
+.titleBox h1 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* --- DESCRIPTION TEXT --- */
+.description {
+    max-width: 600px;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+/* --- DECORATIVE DIVIDER --- */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 60px;
+}
+
+.line {
+    height: 2px;
+    background-color: #333;
+    flex-grow: 1;
+}
+
+.slashes {
+    margin: 0 10px;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* --- FORM --- */
+.form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* The "L-shaped" Border Input Style */
+.inputField {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-left: 4px solid black;  /* Thick left border */
+    border-bottom: 2px solid black; /* Thinner bottom border */
+    padding: 15px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.inputField:focus {
+    background-color: rgba(255, 255, 255, 0.5); /* Slight highlight on focus */
+}
+
+.inputField::placeholder {
+    color: #888;
+    font-weight: 600;
+}
+
+/* Textarea specific height */
+.textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* --- SUBMIT BUTTON SECTION --- */
+.submitContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.verticalBtnLine {
+    height: 30px;
+    width: 2px;
+    background-color: black;
+}
+
+.submitBtn {
+    background: transparent;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.submitContainer:hover .submitBtn {
+    text-decoration: underline; /* Simple hover effect */
+}
