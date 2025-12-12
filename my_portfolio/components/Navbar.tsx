@@ -2,10 +2,10 @@ import Link from 'next/link';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
-  const items = ['About', 'Projects', 'Contact'];
+  const items = ['About','Skills', 'Projects', 'Contact'];
   return (
     <nav className={styles.navbar}>
-      <div className={styles.brand}>TG</div>
+      <div className={styles.brand}>BS</div>
       <div className={styles.links}>
         {items.map((item) => (
           <Link key={item} href={`/${item.toLowerCase()}`} className={styles.link}>

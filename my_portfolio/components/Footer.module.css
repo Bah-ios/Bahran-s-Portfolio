@@ -1,0 +1,74 @@
+/* --- CONTAINER --- */
+.footer {
+    background-color: #000000; /* Solid Black */
+    color: #ffffff;
+    padding: 60px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    z-index: 50;
+}
+
+/* --- BACK TO TOP BUTTON --- */
+/* Matches the | EXPLORE | style from About page */
+.backToTop {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    margin-bottom: 40px;
+    transition: opacity 0.3s ease;
+}
+
+.backToTop:hover {
+    opacity: 0.7;
+}
+
+.verticalLine {
+    height: 25px;
+    width: 2px;
+    background-color: #ffffff; /* White line on black bg */
+}
+
+.topText {
+    font-size: 0.9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- SOCIAL ICONS --- */
+.socials {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.icon {
+    color: #ffffff;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: #888888;
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* --- COPYRIGHT TEXT --- */
+.copyright {
+    font-size: 0.75rem;
+    color: #555555; /* Darker gray for subtle text */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.bold {
+    color: #ffffff;
+    font-weight: 700;
+}
