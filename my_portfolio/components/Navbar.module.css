@@ -17,7 +17,7 @@
   color: #000;
 }
 .links { display:flex; gap:24px; align-items:center; }
-.link { color:#000; font-weight:600; font-size:0.95rem; text-decoration:none; }
+.link { color:#ffffff; font-weight:600; font-size:0.95rem; text-decoration:none; }
 .link:hover { color:#555; }
 .hireBtn { background:#fff; color:#000; font-weight:700; font-size:0.78rem; padding:8px 16px; border-radius:9999px; text-decoration:none; }
 @media (max-width: 768px) {

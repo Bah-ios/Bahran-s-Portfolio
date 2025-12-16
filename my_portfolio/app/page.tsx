@@ -4,6 +4,9 @@ import Navbar from '@/components/Navbar';
 import dbConnect from '@/lib/mongodb';
 import { Content } from '@/lib/models';
 import styles from './page.module.css';
+
+
+// Component Imports
 import About from './about/page';
 import Skills from './skills/page';
 import Contact from './contact/page';
@@ -18,11 +21,47 @@ async function getFooterData() {
 
 export default async function Home() {
   const footerData = await getFooterData();
+  
+
+  
 
   return (
     <main className={styles.splitBackground}>
       <Navbar />
       
+      {/* ==================================================
+          1. MOBILE HERO SECTION (Only visible on Mobile)
+      ================================================== */}
+      <div className={styles.mobileHero}>
+        <div className={styles.mobileBgImage}>
+          <Image 
+            src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Mobile Background"
+            fill
+            priority
+          />
+        </div>
+
+        <p className={styles.mobileIntro}>my name is Bahran</p>
+        <h1 className={styles.mobileTitle}>I’M A DEVELOPER</h1>
+        
+        <div className={styles.mobileDivider}>
+            <div className={styles.mobileLine}></div>
+            <span style={{ fontWeight: 900 }}>\\ //</span>
+            <div className={styles.mobileLine}></div>
+        </div>
+
+        <div className={styles.socialIcons} style={{ color: 'white', marginTop: '20px' }}>
+          <FaAt />
+          <FaGithub />
+          <FaLinkedinIn />
+        </div>
+      </div>
+
+      {/* ==================================================
+          2. DESKTOP HERO SECTION (Your Exact Original Code)
+          Visible on Desktop, Hidden on Mobile via CSS
+      ================================================== */}
       <div className={styles.hero}>
         <div className={styles.heroLeft}>
           <p className={styles.lead}>Hi, I am</p>
@@ -35,7 +74,6 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* Right Image - contained in portrait-wrap so it doesn't overlay other UI */}
         <div className={styles.heroRight}>
           <div className={styles.portraitWrap}>
             <Image
@@ -48,15 +86,15 @@ export default async function Home() {
           </div>
         </div>
       </div>
+
+      {/* ==================================================
+          3. REST OF THE PAGE
+      ================================================== */}
       <About />
       <Skills />
       <Contact />
       <Projects />
       <Footer />
-      {/* <div className={styles.footerBand}>
-        <h2>{footerData.title}</h2>
-        <p>{footerData.body}</p>
-      </div> */}
       
     </main>
   );

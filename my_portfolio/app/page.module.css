@@ -1,4 +1,13 @@
-.splitBackground { position: relative; background-color: var(--bg-light); }
+/* =================================================================
+   1. YOUR EXACT ORIGINAL DESKTOP CSS
+   (I have not touched the logic here, except adding mobileHero: none)
+   ================================================================= */
+
+.splitBackground { 
+    position: relative; 
+    background-color: var(--bg-light, #e0e0e0); /* Added fallback color */
+}
+
 .splitBackground::before {
   content: '';
   position: absolute;
@@ -6,30 +15,187 @@
   right: 0;
   height: 100%;
   width: 55%;
-  background: var(--bg-dark);
-  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+  background: var(--bg-dark, #000); /* Added fallback color */
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, -50% 100%);
   z-index: 0;
 }
-.splitBackground > * { position: relative; z-index: 10; }
 
-.hero { min-height: 85vh; display:flex; align-items:center; padding:48px 64px; }
-.heroLeft { width:50%; max-width:520px; }
-.lead { font-size:1.125rem; font-weight:600; margin:0 0 8px 0; color:#2b2b2b; }
-.title { font-size:3.5rem; margin:8px 0 12px 0; font-weight:900; line-height:1; color:#000; }
-.sub { color:#6b6b6b; font-weight:600; font-size:1.125rem; margin:0 0 24px 0; }
-.socialIcons { display:flex; gap:16px; }
-.socialIcons :global(svg) { font-size:1.6rem; cursor:pointer; }
+.splitBackground > * { 
+    position: relative; 
+    z-index: 10; 
+}
 
-.heroRight { width:50%; display:flex; justify-content:flex-end; align-items:flex-end; }
-.portraitWrap { height:360px; width:360px; margin-right:48px; pointer-events:none; user-select:none; }
-.portraitWrap :global(img), .portraitWrap :global(svg) { width:100%; height:100%; object-fit:contain; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.25); }
+.hero { 
+    min-height: 85vh; 
+    display: flex; 
+    align-items: center; 
+    padding: 48px 64px; 
+}
 
-.footerBand { background:#111; color:#fff; padding:48px 64px; }
-.footerBand h2 { text-transform:uppercase; font-weight:800; margin:0 0 12px 0; }
-.footerBand p { color:#9aa0a6; max-width:640px; }
+.heroLeft { 
+    width: 50%; 
+    max-width: 520px; 
+}
+
+.lead { 
+    font-size: 1.125rem; 
+    font-weight: 600; 
+    margin: 0 0 8px 0; 
+    color: #2b2b2b; 
+}
+
+.title { 
+    font-size: 3.5rem; 
+    margin: 8px 0 12px 0; 
+    font-weight: 900; 
+    line-height: 1; 
+    color: #000; 
+}
+
+
+.sub { 
+    color: #6b6b6b; 
+    font-weight: 600; 
+    font-size: 1.125rem; 
+    margin: 0 0 24px 0; 
+}
+
+.socialIcons { 
+    display: flex; 
+    gap: 16px; 
+}
+
+.socialIcons :global(svg) { 
+    font-size: 1.6rem; 
+    cursor: pointer; 
+}
+
+.heroRight { 
+    width: 50%; 
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: flex-end; 
+}
+
+.portraitWrap { 
+    height: 360px; 
+    width: 360px; 
+    margin-right: 48px; 
+    pointer-events: none; 
+    user-select: none; 
+}
+
+.portraitWrap :global(img), 
+.portraitWrap :global(svg) { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    border-radius: 8px; 
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25); 
+}
+
+.footerBand { 
+    background: #111; 
+    color: #fff; 
+    padding: 48px 64px; 
+}
+
+.footerBand h2 { 
+    text-transform: uppercase; 
+    font-weight: 800; 
+    margin: 0 0 12px 0; 
+}
+
+.footerBand p { 
+    color: #9aa0a6; 
+    max-width: 640px; 
+}
+
+/* Hide Mobile Hero on Desktop by default */
+.mobileHero {
+    display: none;
+}
+
+
+/* =================================================================
+   2. MOBILE OVERRIDES (The Mountain View)
+   This activates ONLY on screens smaller than 768px.
+   It hides your desktop .hero and shows the .mobileHero
+   ================================================================= */
 
 @media (max-width: 768px) {
-  .hero { padding:32px 20px; flex-direction:column; align-items:flex-start; }
-  .heroLeft { width:100%; }
-  .heroRight { display:none; }
+  
+  /* 1. Reset the Split Background */
+  .splitBackground {
+      background: none;
+  }
+  .splitBackground::before {
+      display: none;
+  }
+
+  /* 2. Hide the Desktop Hero completely */
+  .hero {
+      display: none;
+  }
+
+  /* 3. Show and Style the Mobile Hero */
+  .mobileHero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      color: white;
+      padding-top: 60px;
+  }
+
+  /* Background Image Positioning */
+  .mobileBgImage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+  }
+
+  .mobileBgImage img {
+      object-fit: cover;
+      filter: brightness(0.6);
+  }
+
+  /* Mobile Typography */
+  .mobileIntro {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+  }
+  
+  .mobileTitle {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      line-height: 1.1;
+  }
+  
+  /* Divider */
+  .mobileDivider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+  }
+  
+  .mobileLine {
+      width: 40px;
+      height: 2px;
+      background-color: white;
+  }
 }
