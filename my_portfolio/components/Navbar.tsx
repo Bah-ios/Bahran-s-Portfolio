@@ -8,11 +8,11 @@ const Navbar = () => {
       <div className={styles.brand}>BS</div>
       <div className={styles.links}>
         {items.map((item) => (
-          <Link key={item} href={`/${item.toLowerCase()}`} className={styles.link}>
+          <a key={item} href={`#${item.toLowerCase()}`} className={styles.link}>
             {item}
-          </Link>
+          </a>
         ))}
-        <Link href="/contact" className={styles.hireBtn}>HIRE ME</Link>
+        <a href="#contact" className={styles.hireBtn}>HIRE ME</a>
       </div>
     </nav>
   );

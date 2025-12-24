@@ -5,7 +5,7 @@ import styles from "./about.module.css";
 
 export default function About() {
   return (
-    <>
+    <section id ="about">
       
       
       <main className={styles.container}>
@@ -80,6 +80,6 @@ export default function About() {
         </div>
 
       </main>
-    </>
+    </section>
   );
 }

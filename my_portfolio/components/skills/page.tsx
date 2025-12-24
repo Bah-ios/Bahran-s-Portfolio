@@ -10,7 +10,7 @@ import {
 
 export default function Skills() {
   return (
-    <>
+    <section id ="skills">
       
       
       <main className={styles.container}>
@@ -77,7 +77,7 @@ export default function Skills() {
         </div>
 
       </main>
-    </>
+    </section>
   );
 }
 

@@ -3,7 +3,7 @@
     min-height: 100vh;
     width: 100%;
     /* Same vignette gradient as other pages */
-    background: radial-gradient(circle, #f0f0f0 0%, #cfcfcf 100%);
+    background-color: #e0e0e0;
     display: flex;
     flex-direction: column;
     align-items: center;

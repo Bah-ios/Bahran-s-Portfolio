@@ -3,7 +3,7 @@
     min-height: 100vh;
     width: 100%;
     /* Subtle radial gradient to match the vignette look in the image */
-    background: radial-gradient(circle, #f0f0f0 0%, #dcdcdc 100%);
+    background-color: #e0e0e0;
     display: flex;
     flex-direction: column;
     align-items: center;

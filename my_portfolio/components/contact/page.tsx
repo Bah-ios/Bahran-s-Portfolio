@@ -5,7 +5,7 @@ import styles from "./contact.module.css";
 
 export default function Contact() {
   return (
-    <>
+    <section id ="contact">
       
       
       <main className={styles.container}>
@@ -69,6 +69,6 @@ export default function Contact() {
         </form>
 
       </main>
-    </>
+    </section>
   );
 }

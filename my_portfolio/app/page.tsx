@@ -7,10 +7,10 @@ import styles from './page.module.css';
 
 
 // Component Imports
-import About from './about/page';
-import Skills from './skills/page';
-import Contact from './contact/page';
-import Projects from './projects/page';
+import About from '../components/about/page';
+import Skills from '../components/skills/page';
+import Contact from '../components/contact/page';
+import Projects from '../components/projects/page';
 import Footer from '@/components/Footer';
 
 async function getFooterData() {
@@ -21,6 +21,7 @@ async function getFooterData() {
 
 export default async function Home() {
   const footerData = await getFooterData();
+
   
 
   
@@ -92,8 +93,8 @@ export default async function Home() {
       ================================================== */}
       <About />
       <Skills />
-      <Contact />
       <Projects />
+      <Contact />
       <Footer />
       
     </main>

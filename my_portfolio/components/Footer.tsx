@@ -27,23 +27,20 @@ const Footer = () => {
 
       {/* Social Icons */}
       <div className={styles.socials}>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/bahran-solomon-tadesse/" target="_blank" rel="noopener noreferrer">
             <FaLinkedinIn className={styles.icon} />
         </a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/bah-ios" target="_blank" rel="noopener noreferrer">
             <FaGithub className={styles.icon} />
         </a>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            <FaFacebookF className={styles.icon} />
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://instagram.com/natanim_b" target="_blank" rel="noopener noreferrer">
             <FaInstagram className={styles.icon} />
         </a>
       </div>
 
       {/* Copyright */}
       <p className={styles.copyright}>
-        @2025 <span className={styles.bold}>Bahran</span> All Rights Reserved.
+        @2025 <span className={styles.bold}>Bahran Solomon Tadesse</span> All Rights Reserved.
       </p>
 
     </footer>

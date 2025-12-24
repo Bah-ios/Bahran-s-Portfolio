@@ -5,6 +5,7 @@ import styles from "./projects.module.css";
 import { FaImage } from "react-icons/fa";
 
 export default function Projects() {
+
   // Sample Project Data
   const projects = [
     {
@@ -34,7 +35,7 @@ export default function Projects() {
   ];
 
   return (
-    <>
+    <section id ="projects">
       <main className={styles.container}>
         
         {/* Header Title */}
@@ -107,6 +108,6 @@ export default function Projects() {
         </div>
 
       </main>
-    </>
+    </section>
   );
 }
