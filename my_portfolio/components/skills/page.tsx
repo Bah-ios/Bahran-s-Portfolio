@@ -57,12 +57,7 @@ export default function Skills() {
             <SkillItem icon={<SiPython color="#3776AB" />} name="PYTHON" />
             <SkillItem icon={<SiCplusplus color="#00599C" />} name="C++" />
             <SkillItem icon={<SiC color="#A8B9CC" />} name="C" />
-            {/* Ethiopian Flag Placeholder
-            <div className={styles.skillItem}>
-              <div className={styles.flagCircle}>ET</div>
-              <span className={styles.skillName}>AMHARIC</span>
-              <span className={styles.langLevel}>C1/C2</span>
-            </div> */}
+           
           </div>
         </div>
 

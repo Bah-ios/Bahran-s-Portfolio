@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import { FaGithub, FaLinkedinIn, FaAt } from 'react-icons/fa';
 import Navbar from '@/components/Navbar';
-import dbConnect from '@/lib/mongodb';
-import { Content } from '@/lib/models';
+
 import styles from './page.module.css';
 
 
@@ -13,18 +12,10 @@ import Contact from '../components/contact/page';
 import Projects from '../components/projects/page';
 import Footer from '@/components/Footer';
 
-async function getFooterData() {
-  await dbConnect();
-  let data = await Content.findOne({ section: 'footer' });
-  return data || { title: 'Welcome', body: 'Loading data...' };
-}
+
 
 export default async function Home() {
-  const footerData = await getFooterData();
 
-  
-
-  
 
   return (
     <main className={styles.splitBackground}>
