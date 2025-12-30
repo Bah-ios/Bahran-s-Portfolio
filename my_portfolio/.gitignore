@@ -43,3 +43,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# Ignore System Files
+.DS_Store
+node_modules
+/node_modules
+
+# Ignore Environment Variables (Secrets)
+.env
+.env.local
+.env.production
+.env.development
+
+# Ignore Backend Secrets (Path to your server folder)
+server/.env
+server/node_modules
