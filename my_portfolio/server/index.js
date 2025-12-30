@@ -6,6 +6,8 @@ const dotenv = require('dotenv');
 // Import the Model
 const Contact = require('./models/Contact');
 const Project = require('./models/Projects');
+const Projects = require('./models/Projects');
+const { triggerAsyncId } = require('node:async_hooks');
 // 2. Load environment variables (your secrets)
 dotenv.config();
 
@@ -24,17 +26,6 @@ app.get('/', (req, res) => {
   res.send('Backend is running!');
 });
 
-
-// GET Route: Fetch all projects
-app.get('/api/projects', async (req, res) => {
-  try {
-    // .find() with empty brackets means "Find Everything"
-    const projects = await Project.find(); 
-    res.json(projects); // Send the list back to the browser
-  } catch (error) {
-    res.status(500).json({ message: "Error fetching projects" });
-  }
-});
 // --- DATABASE CONNECTION ---
 // We use the variable from the .env file
 mongoose.connect(process.env.MONGO_URI)
@@ -46,6 +37,42 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
+
+// GET Route: Fetch all projects
+app.get('/api/projects', async (req, res) => {
+  try {
+    // .find() with empty brackets means "Find Everything"
+    const projects = await Project.find(); 
+    res.json(projects); // Send the list back to the browser
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching projects" });
+  }
+});
+
+app.post('/api/projects', async (req,res) =>{
+  try{
+    const { title, description, tags, link} = req.body
+    if(!title || !description){
+      return res.status(400).json({success: false, message: "Title and Description are Requiered"})
+    }
+    const newProject = new Projects({
+      title,
+      description,
+      tags: tags ? tags.split(',') : [],
+      link
+
+    });
+
+
+    await newProject.save();
+    res.status(201).json({success: true , message: "Project added"})
+
+  }
+  catch(error){
+    console.log(error)
+    res.status(500).json({success: false , message : "server Error"})
+  }
+});
 
 // CREATE THE ENDPOINT
 app.post('/api/contact', async (req, res) => {
