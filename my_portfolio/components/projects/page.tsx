@@ -1,7 +1,6 @@
 'use client'; // Required for fetch and state
 
 import { useState, useEffect } from 'react';
-import Navbar from "@/components/Navbar";
 import styles from "./projects.module.css";
 import { FaImage } from "react-icons/fa";
 
@@ -32,7 +31,6 @@ export default function Projects() {
   return (
     <section id="projects">
       
-      
       <main className={styles.container}>
         
         <div className={styles.titleBox}>
@@ -40,8 +38,7 @@ export default function Projects() {
         </div>
 
         <p className={styles.description}>
-          Here are a few projects I have worked on. 
-          These are fetched dynamically from my MongoDB database.
+          Here are a few projects I have worked on.  
         </p>
 
         <div className={styles.divider}>
@@ -82,16 +79,16 @@ export default function Projects() {
                     <span key={index} className={styles.tag}>{tag}</span>
                   ))}
                 </div>
-
+                
                 <div className={styles.links}>
-                  <a href={proj.linkCode || '#'} target="_blank" rel="noopener noreferrer" className={styles.linkBtnContainer}>
-                    <div className={styles.verticalLineBtn}></div>
-                    <span className={styles.linkText}>CODE</span>
-                  </a>
-
-                  <a href={proj.linkLive || '#'} target="_blank" rel="noopener noreferrer" className={styles.linkBtnContainer}>
+                  <a href={proj.link || '#projects'} target="_blank" rel="noopener noreferrer" className={styles.linkBtnContainer}>
                     <div className={styles.verticalLineBtn}></div>
                     <span className={styles.linkText}>LIVE</span>
+                  </a>
+
+                  <a href={proj.gitLink || '#projects'} target="_blank" rel="noopener noreferrer" className={styles.linkBtnContainer}>
+                    <div className={styles.verticalLineBtn}></div>
+                    <span className={styles.linkText}>CODE</span>
                   </a>
                 </div>
 

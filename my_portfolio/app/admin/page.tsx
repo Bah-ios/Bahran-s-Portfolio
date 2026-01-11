@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Navbar from "@/components/Navbar";
 import styles from "@/components/contact/contact.module.css"; // Reuse Contact styles
 
 export default function Admin() {
@@ -9,7 +8,8 @@ export default function Admin() {
     title: '',
     description: '',
     tags: '', 
-    link: ''
+    link: '',
+    gitLink: ''
   });
     // const [status, setStatus] = useState('');
 
@@ -33,7 +33,7 @@ export default function Admin() {
       if (data.success) {
         alert("Project Added Successfully!");
         // Clear form
-        setFormData({ title: '', description: '', tags: '', link: '' });
+        setFormData({ title: '', description: '', tags: '', link: '', gitLink: '' });
       } else {
         alert("Error: " + data.message);
       }
@@ -44,7 +44,7 @@ export default function Admin() {
 
   return (
     <main className={styles.container} style={{ paddingTop: '100px' }}>
-      <Navbar />
+      
       
       <div className={styles.titleBox}>
         <h1>Add Project</h1>
@@ -65,18 +65,19 @@ export default function Admin() {
 
         <input 
           name="tags" value={formData.tags} onChange={handleChange}
-          type="text" placeholder="TAGS (comma separated: React,Node)" className={styles.inputField} 
+          type="text" placeholder="TAGS (comma separated: React,Node)" className={styles.inputField} required
         />
 
         <input 
           name="link" value={formData.link} onChange={handleChange}
-          type="text" placeholder="PROJECT LINK" className={styles.inputField} 
+          type="text" placeholder="PROJECT LINK" className={styles.inputField} required
+        />
+        <input 
+          name="gitLink" value={formData.gitLink} onChange={handleChange}
+          type="text" placeholder="GIT REPO LINK" className={styles.inputField} required
         />
 
-        {/* <input 
-          name="linkLive" value={formData.linkLive} onChange={handleChange}
-          type="text" placeholder="LIVE LINK" className={styles.inputField} 
-        /> */}
+        
 
         <div className={styles.submitContainer}>
           <div className={styles.verticalBtnLine}></div>
