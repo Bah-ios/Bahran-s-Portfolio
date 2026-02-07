@@ -69,6 +69,16 @@
     font-size: 1.6rem; 
     cursor: pointer; 
 }
+.socialIcon {  
+    color: #000000;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.socialIcon:hover {
+    color: #909090;
+    transform: translateY(-5px); /* Slight lift on hover */
+}
 
 .heroRight { 
     width: 50%; 

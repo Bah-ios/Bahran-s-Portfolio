@@ -5,6 +5,7 @@ import styles from "@/components/contact/contact.module.css"; // Reuse Contact s
 
 export default function Admin() {
   const [formData, setFormData] = useState({
+    image: '',
     title: '',
     description: '',
     tags: '', 
@@ -33,7 +34,7 @@ export default function Admin() {
       if (data.success) {
         alert("Project Added Successfully!");
         // Clear form
-        setFormData({ title: '', description: '', tags: '', link: '', gitLink: '' });
+        setFormData({ image: '', title: '', description: '', tags: '', link: '', gitLink: '' });
       } else {
         alert("Error: " + data.message);
       }
@@ -52,6 +53,13 @@ export default function Admin() {
 
       <form className={styles.form} onSubmit={handleSubmit}>
         
+        <input
+         name = "image" value={formData.image} onChange={handleChange}
+         type="text" 
+         placeholder="IMAGE URL*" 
+         className={styles.inputField} required
+        />
+         
         <input 
           name="title" value={formData.title} onChange={handleChange}
           type="text" placeholder="PROJECT TITLE*" className={styles.inputField} required 
@@ -72,12 +80,11 @@ export default function Admin() {
           name="link" value={formData.link} onChange={handleChange}
           type="text" placeholder="PROJECT LINK" className={styles.inputField} required
         />
+        
         <input 
           name="gitLink" value={formData.gitLink} onChange={handleChange}
           type="text" placeholder="GIT REPO LINK" className={styles.inputField} required
         />
-
-        
 
         <div className={styles.submitContainer}>
           <div className={styles.verticalBtnLine}></div>

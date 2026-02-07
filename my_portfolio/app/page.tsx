@@ -60,10 +60,16 @@ export default async function Home() {
           <h1 className={styles.title}>Bahran</h1>
           <p className={styles.sub}>Full Stack Developer</p>
           <div className={styles.socialIcons}>
-            <FaAt />
-            <FaGithub />
-            <FaLinkedinIn />
-          </div>
+            <a href="mailto:bahfeb69@gmail.com" target="_blank" rel="noopener noreferrer">
+              <FaAt className={styles.socialIcon}/>
+            </a>
+            <a href="https://github.com/bah-ios" target="_blank" rel="noopener noreferrer">
+              <FaGithub className={styles.socialIcon}/>
+            </a>
+            <a href="https://linkedin.com/in/bahran_solomon_tadesse" target="_blank" rel="noopener noreferrer">
+              <FaLinkedinIn className={styles.socialIcon}/>
+            </a>
+           </div>
         </div>
 
         <div className={styles.heroRight}>

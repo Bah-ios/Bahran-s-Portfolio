@@ -17,8 +17,9 @@ export default function About() {
 
         {/* Intro Text */}
         <p className={styles.introText}>
-          Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. 
-          Sed ornare sit amet lorem sed viverra. In vel urna quis libero viverra facilisis ut ac est.
+          Computer Science and Engineering graduate specializing in mobile application development. 
+          Experienced with FlutterFlow, Firebase, Node.js, and REST APIs, and passionate about building 
+          scalable, real-world solutions.
         </p>
 
         {/* Explore Section */}
@@ -43,7 +44,7 @@ export default function About() {
             <FaPencilRuler className={styles.bgIcon} />
             <h2 className={styles.serviceTitle}>DESIGN</h2>
             <p className={styles.serviceDesc}>
-              I can design the site based on your needs and suggestions. I can
+              Can design the site based on your needs and suggestions. I can
               also design the site from scratch and consult you during the job.
             </p>
           </div>
@@ -53,7 +54,7 @@ export default function About() {
             <FaCode className={styles.bgIcon} />
             <h2 className={styles.serviceTitle}>DEVELOPMENT</h2>
             <p className={styles.serviceDesc}>
-              I can design the site based on your needs and suggestions. I can
+              Can design the site based on your needs and suggestions. I can
               also design the site from scratch and consult you during the job.
             </p>
           </div>
@@ -64,7 +65,7 @@ export default function About() {
                 <FaCogs className={styles.bgIcon} />
                 <h2 className={styles.serviceTitle}>MAINTENANCE</h2>
                 <p className={styles.serviceDesc}>
-                I can design the site based on your needs and suggestions. I can
+                Can design the site based on your needs and suggestions. I can
                 also design the site from scratch and consult you during the job.
                 </p>
             </div>

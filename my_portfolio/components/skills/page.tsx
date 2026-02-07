@@ -12,7 +12,6 @@ export default function Skills() {
   return (
     <section id ="skills">
       
-      
       <main className={styles.container}>
         
         {/* Header Box */}
@@ -44,7 +43,6 @@ export default function Skills() {
             <SkillItem icon={<SiTailwindcss color="#38B2AC" />} name="TAILWIND CSS" />
             <SkillItem icon={<SiNodedotjs color="#339933" />} name="NODEJS" />
             <SkillItem icon={<SiMysql color="#4479A1" />} name="MYSQL" />
-            
             <SkillItem icon={<SiTypescript color="#3178C6" />} name="TYPESCRIPT" />
             
           </div>
@@ -55,9 +53,6 @@ export default function Skills() {
           <h2 className={styles.sectionTitle}>OTHER SKILLS:</h2>
           <div className={styles.grid}>
             <SkillItem icon={<SiPython color="#3776AB" />} name="PYTHON" />
-            <SkillItem icon={<SiCplusplus color="#00599C" />} name="C++" />
-            <SkillItem icon={<SiC color="#A8B9CC" />} name="C" />
-           
           </div>
         </div>
 
