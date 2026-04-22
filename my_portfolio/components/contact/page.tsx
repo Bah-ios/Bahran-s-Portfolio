@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import styles from "./contact.module.css"; // Make sure this path is correct!
-
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -45,14 +46,25 @@ export default function Contact() {
       console.error(error);
     }
   };
+  //  SCROLL DETECTION: Trigger animations when section comes into view
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
 
   return (
     <section id="contact">
-      <main className={styles.container}>
+      <main className={styles.container} ref={ref}>
         
-        <div className={styles.titleBox}>
+        <motion.div 
+        className={styles.titleBox}
+        initial={{ opacity : 0.8, scale : 0.8 }}
+        animate= {inView ? { opacity : 1, scale : 1} : { opacity: 0, scale: 0.8 }}
+        transition={{duration : 0.6 }}
+        >
           <h1>Contact</h1>
-        </div>
+        </motion.div>
 
         <div className={styles.divider}>
           <div className={styles.line}></div>
@@ -65,9 +77,15 @@ export default function Contact() {
             Does this tag say onSubmit={handleSubmit}? 
             If not, the page will reload.
         */}
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <motion.form 
+          className={styles.form} 
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           
-          <input 
+          <motion.input 
             name="name"
             value={formData.name}
             onChange={handleChange}
@@ -75,9 +93,12 @@ export default function Contact() {
             placeholder="ENTER YOUR NAME*" 
             className={styles.inputField} 
             required
+            initial={{ opacity: 0, x: -50 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
           />
           
-          <input 
+          <motion.input 
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -85,35 +106,50 @@ export default function Contact() {
             placeholder="ENTER YOUR EMAIL*" 
             className={styles.inputField} 
             required
+            initial={{ opacity: 0, x: 50 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
           />
           
-          <input 
+          <motion.input 
             name="phone"
             value={formData.phone}
             onChange={handleChange}
             type="tel" 
             placeholder="PHONE NUMBER" 
-            className={styles.inputField} 
+            className={styles.inputField}
+            initial={{ opacity: 0, x: -50 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
           />
           
-          <textarea 
+          <motion.textarea 
             name="message"
             value={formData.message}
             onChange={handleChange}
             placeholder="YOUR MESSAGE*" 
             className={`${styles.inputField} ${styles.textarea}`} 
             required
-          ></textarea>
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          />
 
-          <div className={styles.submitContainer}>
+          <motion.div 
+            className={styles.submitContainer}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+          >
             <div className={styles.verticalBtnLine}></div>
             <button type="submit" className={styles.submitBtn}>
               SUBMIT
             </button>
             <div className={styles.verticalBtnLine}></div>
-          </div>
+          </motion.div>
 
-        </form>
+        </motion.form>
+
 
       </main>
     </section>
