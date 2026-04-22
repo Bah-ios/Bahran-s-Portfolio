@@ -1,8 +1,16 @@
+"use client";
 import Image from 'next/image';
 import { FaGithub, FaLinkedinIn, FaAt } from 'react-icons/fa';
 import Navbar from '@/components/Navbar';
 
 import styles from './page.module.css';
+import {motion} from "framer-motion";
+import dynamic from 'next/dynamic';
+
+// Dynamic import to avoid SSR issues
+const Typewriter = dynamic(() => import('typewriter-effect'), {
+  ssr: false,
+});
 
 
 // Component Imports
@@ -14,7 +22,7 @@ import Footer from '@/components/Footer';
 
 
 
-export default async function Home() {
+export default function Home() {
 
 
   return (
@@ -57,8 +65,36 @@ export default async function Home() {
       <div className={styles.hero}>
         <div className={styles.heroLeft}>
           <p className={styles.lead}>Hi, I am</p>
-          <h1 className={styles.title}>Bahran</h1>
-          <p className={styles.sub}>Full Stack Developer</p>
+          {/*<h1 className={styles.title}>Bahran</h1>*/}
+          <motion.h1 
+            className={styles.title}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <Typewriter
+              options={{
+                strings: ['Bahran', 'Full Stack Developer', 'Problem Solver'],
+                autoStart: true,
+                loop: true,
+                delay: 100,
+                deleteSpeed: 50,
+              }}
+            />
+          </motion.h1>
+
+          {/* <p className={styles.sub}>Full Stack Developer</p> */}
+          {/* changed the static name to a typing animation*/}
+          <motion.p 
+            className={styles.sub}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            Building digital experiences
+          </motion.p>
+
+
           <div className={styles.socialIcons}>
             <a href="mailto:bahfeb69@gmail.com" target="_blank" rel="noopener noreferrer">
               <FaAt className={styles.socialIcon}/>
