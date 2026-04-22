@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import styles from "./projects.module.css";
 import { FaImage } from "react-icons/fa";
-
+import { invisibleValues, motion } from "framer-motion"
+import { useInView }  from "react-intersection-observer"
 export default function Projects() {
   // 1. STATE: Store the list of projects
   const [projects, setProjects] = useState([]);
@@ -27,19 +28,35 @@ export default function Projects() {
 
     fetchProjects();
   }, []);
+  // 3. SCROLL DETECTION: Trigger animations when section comes into view
+    const [ref, inView] = useInView({
+      triggerOnce: false,
+      threshold: 0.1,
+    });
+
 
   return (
     <section id="projects">
       
-      <main className={styles.container}>
+      <main className={styles.container} ref={ref}>
         
-        <div className={styles.titleBox}>
+        <motion.div 
+        className={styles.titleBox}
+        initial={{ opacity : 0.8, scale : 0.8 }}
+        animate= {inView ? { opacity : 1, scale : 1} : { opacity: 0, scale: 0.8 }}
+        transition={{duration : 0.6 }}
+        >
           <h1>Projects</h1>
-        </div>
+        </motion.div>
 
-        <p className={styles.description}>
+        <motion.p 
+        className={styles.description}
+        initial={{opacity : 0, scale : 0.8}}
+        animate = {inView? {opacity : 1, scale :1} : {opacity : 0 , scale : 0.8 }}
+        transition={{duration : 0.6, delay : 0.2}}
+        >
           Here are a few projects I have worked on.  
-        </p>
+        </motion.p>
 
         <div className={styles.divider}>
           <div className={styles.line}></div>
@@ -57,9 +74,18 @@ export default function Projects() {
 
         {/* PROJECTS GRID */}
         <div className={styles.grid}>
-          {projects.map((proj: any) => (
+          {projects.map((proj: any, index : number) => (
             // Use _id because MongoDB automatically creates it
-            <div key={proj._id} className={styles.card}>
+            <motion.div 
+            key={proj._id} 
+            className={styles.card}
+            initial={{ opacity : 0 , y: 50, scale : 0.9 }} 
+            animate= {inView ? { opacity : 1, y:0, scale : 1 } : { opacity : 0, y : 50, scale : 0.9}}
+            transition={{
+              duration : 0.6,
+              delay : 0.4 + (index* 0.1)  // Staggered effect
+            }} 
+            >
               
               <div className={styles.imagePlaceholder}>
                 {proj.image ? (
@@ -93,7 +119,7 @@ export default function Projects() {
                 </div>
 
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
