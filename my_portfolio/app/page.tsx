@@ -26,38 +26,13 @@ export default function Home() {
 
 
   return (
-    <main className={styles.splitBackground}>
+    <motion.main className={styles.splitBackground}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1.2 }}
+    >
       <Navbar />
       
-      {/* ==================================================
-          1. MOBILE HERO SECTION (Only visible on Mobile)
-      ================================================== */}
-      <div className={styles.mobileHero}>
-        <div className={styles.mobileBgImage}>
-          <Image 
-            src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="Mobile Background"
-            fill
-            priority
-          />
-        </div>
-
-        <p className={styles.mobileIntro}>my name is Bahran</p>
-        <h1 className={styles.mobileTitle}>I’M A DEVELOPER</h1>
-        
-        <div className={styles.mobileDivider}>
-            <div className={styles.mobileLine}></div>
-            <span style={{ fontWeight: 900 }}>\\ //</span>
-            <div className={styles.mobileLine}></div>
-        </div>
-
-        <div className={styles.socialIcons} style={{ color: 'white', marginTop: '20px' }}>
-          <FaAt />
-          <FaGithub />
-          <FaLinkedinIn />
-        </div>
-      </div>
-
       {/* ==================================================
           2. DESKTOP HERO SECTION (Your Exact Original Code)
           Visible on Desktop, Hidden on Mobile via CSS
@@ -102,7 +77,7 @@ export default function Home() {
             <a href="https://github.com/bah-ios" target="_blank" rel="noopener noreferrer">
               <FaGithub className={styles.socialIcon}/>
             </a>
-            <a href="https://linkedin.com/in/bahran_solomon_tadesse" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/bahran-solomon-tadesse" target="_blank" rel="noopener noreferrer">
               <FaLinkedinIn className={styles.socialIcon}/>
             </a>
            </div>
@@ -120,6 +95,34 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* ==================================================
+          1. MOBILE HERO SECTION (Only visible on Mobile)
+      ================================================== */}
+      <div className={styles.mobileHero}>
+        <div className={styles.mobileBgImage}>
+          <Image 
+            src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Mobile Background"
+            fill
+            priority
+          />
+        </div>
+
+        <p className={styles.mobileIntro}>my name is Bahran</p>
+        <h1 className={styles.mobileTitle}>I’M A DEVELOPER</h1>
+        
+        <div className={styles.mobileDivider}>
+            <div className={styles.mobileLine}></div>
+            <span style={{ fontWeight: 900 }}>\\ //</span>
+            <div className={styles.mobileLine}></div>
+        </div>
+
+        <div className={styles.socialIcons} style={{ color: 'white', marginTop: '20px' }}>
+          <FaAt />
+          <FaGithub />
+          <FaLinkedinIn />
+        </div>
+      </div>
 
       {/* ==================================================
           3. REST OF THE PAGE
@@ -130,6 +133,6 @@ export default function Home() {
       <Contact />
       <Footer />
       
-    </main>
+    </motion.main>
   );
 }

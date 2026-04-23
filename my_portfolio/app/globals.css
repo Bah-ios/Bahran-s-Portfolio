@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
 /* We manually set the font family here now */
 body {
   margin: 0;
