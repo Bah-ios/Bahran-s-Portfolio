@@ -1,9 +1,8 @@
 'use client';
 
-import { invisibleValues, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import styles from "./experience.module.css";
-import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 // 📚 LEARNING POINT: TypeScript Interface
 // This defines the structure of each experience object
@@ -66,7 +65,6 @@ export default function Experience() {
       <main className={styles.container}>
         
         {/* Animated Header */}
-        {/* This follows the same pattern as your other sections */}
         <motion.div 
           className={styles.titleBox}
           initial={{ opacity: 0.8, scale: 0.8 }}
