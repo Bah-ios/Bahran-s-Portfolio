@@ -19,6 +19,7 @@ import Skills from '../components/skills/page';
 import Contact from '../components/contact/page';
 import Projects from '../components/projects/page';
 import Footer from '@/components/Footer';
+import Experience from '@/components/experience/page';
 
 
 
@@ -129,6 +130,7 @@ export default function Home() {
       ================================================== */}
       <About />
       <Skills />
+      <Experience/>
       <Projects />
       <Contact />
       <Footer />
