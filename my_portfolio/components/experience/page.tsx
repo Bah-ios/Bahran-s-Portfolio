@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import styles from "./experience.module.css";
+import { useEffect, useState } from "react";
+
 
 // 📚 LEARNING POINT: TypeScript Interface
 // This defines the structure of each experience object
@@ -22,36 +24,27 @@ export default function Experience() {
   // 📚 LEARNING POINT: Data Structure
   // We're storing experience data in an array of objects
   // Each object represents one job/experience
-  const experiences: ExperienceItem[] = [
-    {
-      id: 1,
-      company: "Tech Solutions Inc",
-      position: "Frontend Developer",
-      duration: "Jan 2023 - Present",
-      location: "Remote",
-      description: [
-        "Developed responsive web applications using React and Next.js",
-        "Collaborated with design team to implement pixel-perfect UI components",
-        "Optimized application performance resulting in 40% faster load times"
-      ],
-      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-      type: "full-time"
-    },
-    {
-      id: 2,
-      company: "Digital Agency Pro",
-      position: "Web Developer Intern",
-      duration: "Jun 2022 - Dec 2022",
-      location: "New York, NY",
-      description: [
-        "Built client websites using HTML, CSS, and JavaScript",
-        "Assisted senior developers in debugging and testing applications",
-        "Learned version control with Git and collaborative development"
-      ],
-      technologies: ["HTML", "CSS", "JavaScript", "Git"],
-      type: "internship"
+  const [experiences, setExperiences] = useState<ExperienceItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchExperiences = async() =>{
+        try {
+
+            const res = await fetch('http://localhost:5000/api/experiences');
+            const data = await res.json();
+
+            setExperiences(data);
+            setLoading(false);
+        }
+        catch( error){
+            console.error("Failed Loading Experiences:", error);
+            setLoading(false);
+        }
     }
-  ];
+    fetchExperiences();
+  }, []);
+  
 
   // Intersection Observer Hook
   // This detects when the section comes into view for animations
@@ -61,8 +54,8 @@ export default function Experience() {
   });
 
   return (
-    <section id="experience" ref={ref}>
-      <main className={styles.container}>
+    <section id="experience">
+      <main className={styles.container} ref={ref}>
         
         {/* Animated Header */}
         <motion.div 
@@ -74,10 +67,19 @@ export default function Experience() {
           <h1>Experience</h1>
         </motion.div>
 
+         {/* LOADING STATE */}
+        {loading && <p style={{fontWeight:'bold'}}>Loading Experiences from Backend...</p>}
+
+        {/* EMPTY STATE */}
+        {!loading && experiences.length === 0 && (
+          <p>No Experiences found. Add some in MongoDB Compass!</p>
+        )}
+
         {/* Timeline Container  */}
+
         <div className={styles.timeline}>
           {/* Experience items will go here */}
-          {experiences.map((experience, index) => (
+          {experiences.map((experience : ExperienceItem, index) => (
             <motion.div
             key={experience.id}
             className={styles.timelineItem}

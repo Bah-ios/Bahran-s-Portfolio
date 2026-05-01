@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './Navbar.module.css';
 import { motion } from "framer-motion";
 const Navbar = () => {
-  const items = ['About','Skills', 'Projects', 'Contact'];
+  const items = ['About','Skills','Experience', 'Projects'];
   return (
     <motion.nav
      className={styles.navbar}
