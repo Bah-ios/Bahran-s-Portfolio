@@ -141,6 +141,8 @@
     color: #666;
     line-height: 1.5;
     margin-bottom: 20px;
+    overflow-wrap: break-word; /* Recommended */
+    word-break: break-all;     /* Alternative: forces breaks anywhere */
 }
 
 /* Tags */
